@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="draggable" style="width:100px;height:100px;background:rgb(135, 193, 240);" draggable="true"></div>
+    <div id="dropzone" style="width:200px;height:200px;border:2px dashed #000;"></div>
+    
+</body>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+  $("#draggable").on("dragstart", function (e) {
+    e.originalEvent.dataTransfer.setData("text", e.target.id);
+  });
+
+  $("#dropzone").on("dragover", function (e) {
+    e.preventDefault();
+    $(this).css("background", "#f0f0f0");
+  });
+
+  $("#dropzone").on("drop", function (e) {
+    e.preventDefault();
+    const data = e.originalEvent.dataTransfer.getData("text");
+    $(this).append($("#" + data));
+  });
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="showBtn">Show</button>
+    <button id="hideBtn">Hide</button>
+    <button id="toggleBtn">Toggle</button>
+    <button id="slideUp">Slide Up</button>
+    <button id="slideDown">Slide Down</button>
+    <div id="box" style="display:none; background:lightblue; padding:20px;">I am Sujit kumar yadav</div>
+
+</body>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+    $("#showBtn").click(() => $("#box").show());
+    $("#hideBtn").click(() => $("#box").hide());
+    $("#toggleBtn").click(() => $("#box").toggle());
+    $("#slideUp").click(() => $("#box").slideUp());
+    $("#slideDown").click(() => $("#box").slideDown());
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <form id="myForm">
+        <h3>LOGIN PAGE</h3>
+        Name: <input type="text" id="name"><span id="nameErr"></span><br>
+        Email: <input type="text" id="email"><span id="emailErr"></span><br>
+        Phone: <input type="text" id="phone"><span id="phoneErr"></span><br>
+        <button type="submit" style="margin-top: 20px;">Submit</button>
+      </form>
+      
+</body>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+  $("#myForm").submit(function (e) {
+    e.preventDefault();
+    let valid = true;
+
+    if ($("#name").val() === "") {
+      $("#nameErr").text("Name is required").css("color", "red");
+      valid = false;
+    } else {
+      $("#nameErr").text("");
+    }
+
+    const email = $("#email").val();
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      $("#emailErr").text("Invalid email").css("color", "red");
+      valid = false;
+    } else {
+      $("#emailErr").text("");
+    }
+
+    const phone = $("#phone").val();
+    if (!/^\d{10}$/.test(phone)) {
+      $("#phoneErr").text("Invalid phone number").css("color", "red");
+      valid = false;
+    } else {
+      $("#phoneErr").text("");
+    }
+
+    if (valid) alert("Form submitted!");
+  });
+</script>
+</html>
